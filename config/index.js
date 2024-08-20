@@ -1,9 +1,6 @@
 import { createPool } from "mysql2";
 import 'dotenv/config.js'
-import { config } from "dotenv";
-
-config()
-const connnection = createPool({
+const connection = createPool({
     host: process.env.hostDb,
     user: process.env.userDb,
     password: process.env.pwDb,
@@ -12,8 +9,8 @@ const connnection = createPool({
     connectionLimit: 5
 })
 
-connection.on('connect', (err) => {
-    if (err) throw new Error('The database did not respond due to a connection error, please try again later' )
+connection.on('connect', (pool) => {
+    if (!pool) throw new Error('The database did not respond due to a connection error, please try again later' )
     })
 
     export {
