@@ -4,7 +4,9 @@
     <section class="landing">
       <h1>Welcome to AuraArtistry</h1>
       <p>Your go-to destination for luxury makeup artistry. Unlock your unique aura and let your true beauty radiate.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </section>
 
     <section class="products">
@@ -26,37 +28,49 @@
       <img src="product-image-1.jpg" alt="Product 1">
       <h3>Eye Shadow <br> Palette</h3>
       <p>Multiple shade palette with long-lasting, high-pigmentation colors.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
     <div class="product-item">
       <img src="product-image-2.jpg" alt="Product 2">
       <h3>Lipstick <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
     <div class="product-item">
       <img src="product-image-2.jpg" alt="Product 3">
       <h3>Foundation Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
     <div class="product-item">
       <img src="product-image-2.jpg" alt="Product 4">
       <h3>Mascara <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
     <div class="product-item">
       <img src="product-image-2.jpg" alt="Product 5">
       <h3>Highlighter Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
     <div class="product-item">
       <img src="product-image-2.jpg" alt="Product 6">
       <h3>Blush <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
-      <button class="cta-button">Shop Now</button>
+      <router-link to="/products">
+          <button class="cta-button">Shop Now</button>
+        </router-link>
     </div>
   </div>
 
@@ -80,25 +94,35 @@ import NavbarComp from '../components/NavBarComp.vue';
 
 // // eslint-disable-next-line no-unused-vars
 import FooterComp from '../components/FooterComp.vue'
+import AOS from 'aos';
 
 export default {
   name: 'HomeView',
   components: {
     NavbarComp,
     FooterComp
-    }
+    },
+    mounted() {
+      AOS.init({
+      duration: 1000, 
+      easing: 'ease-in-out', 
+      offset: 200, 
+    });
+  }
 }
 </script>
 
 <style scoped>
 .home {
-  font-family: Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #333;
 }
 
 .landing {
   background-image: url(https://tyra-parring.github.io/host-/image/7290139-uhd_3840_2160_25fps-ezgif.com-optimize.gif);
-  height: max-content;
+  height: fit-content;
+  background-size: contain; 
+  background-position: center;
   color: #FAF0E6; 
   padding: 40px;
   display: flex;
@@ -143,7 +167,7 @@ export default {
 }
 
 .products h2 {
-  color: #FF4500; 
+  color: #FFC0CB; 
   margin-bottom: 20px;
 }
 
