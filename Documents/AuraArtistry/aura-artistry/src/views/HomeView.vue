@@ -242,6 +242,10 @@ export default {
   margin-top: 70px;
 }
 
+.customer-testimonials h2 {
+  font-size: 1.9em;
+}
+
 .customer-testimonials p {
   font-size: 1em;
   margin-bottom: 20px;
