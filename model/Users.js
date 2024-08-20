@@ -45,11 +45,40 @@ fetchUser(req, res) {
     }
 
 }
+async registerUser(req, res) {
+    try {
+        let data = req.body
+        data.userPass = await hash(data.userPass, 10)
 
-
-
-
-
+        let user = {
+            emailAdd: data.emailAdd,
+            userPass: data.userPass
+        }
+        const strQry = `
+        INSERT INTO Users
+        SET ?;
+        `
+        db.query(strQry, [data], (err) => {
+            if (err) {
+                res.json({
+                    status: res.statusCode,
+                    msg: "This email appears to already be registered. Please log in or choose a different email address."
+                })
+            } else {
+                const token = createToken(user)
+                res.json({
+                    token,
+                    msg: "You have been successfully registered to use Aura Arstistry. Please log in to continue."
+                })
+            }
+    })
+} catch  (e) {
+    res.json({
+        status: 404,
+        err: e.message
+    })
+}
+}
 
 
 
