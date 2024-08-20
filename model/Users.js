@@ -6,7 +6,7 @@ class Users {
     fetchUsers(req, res) {
         try {
             const strQry = `
-            SELECT firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
+            SELECT firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
             FROM Users;
             `
             db.query(strQry, (err, results) => {
@@ -26,7 +26,7 @@ class Users {
 fetchUser(req, res) {
     try {
         const strQry = `
-        SELECT firstName, lastName, userAge, Gender, emailAdd, userPass, userProfile
+        SELECT firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
             FROM Users
             WHERE UserID = ${req.params.id};
         `
@@ -124,8 +124,50 @@ deleteUser(req, res) {
     })
    }
 }
+async login(req, res) {
+    try {
+        const { emailAdd, userPass } = req.body
+        const strQry = `
+        SELECT UserID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
+        FROM Users
+        WHERE emailAdd = ${emailAdd};
+        `
+        db.query(strQry, async (err, result) => {
+            if (err) throw new Error('Our apologies, we couldn\'t log you in. Please review your login query to continue.')
+                if (!result?.length) {
+                    res.json({
+                        status: 401,
+                        msg: "It seems you have provided an invalid email not registered with Aura Artistry. Please register."
+                    })
+                } else {
+                    const ValidPass = await compare(userPass, result[0], userPass)
+                    if (ValidPass) {
+                        const acesss = createToken({
+                            emailAdd,
+                            userPass
+                        })
+                        res.json({
+                            status: res.statusCode,
+                            token,
+                            result: result[0]
+                        })
+                    } else {
+                        res.json({
+                            status: 401,
+                            msg: "It seems you have provided an invalid password or have not registered with Aura Arstistry. Please try again."
+                        })
+                    }
+                }
+        })
+    } catch (e) {
+        res.json({
+            status: 404,
+            msg: e.message
+        })
+    }
+}
+}
 
-
-
-
+export {
+    Users
 }
