@@ -82,8 +82,27 @@ class Products {
             })
         }
     }
+    deleteProduct(req, res) {
+        try {
+            const strQry = `
+            DELETE FROM Products
+            WHERE prodID = ${req.params.id};
+            `
+            db.query(strQry, (err) => {
+                res.json({
+                    status: res.statusCode,
+                    msg: "The information on this product has been successfully been updated."
+                })
+            })
+        } catch (e) {
+            res.json({
+                status: 404,
+                err: e.message
+            })
+        }
+    }
+}
 
-
-
-
+export {
+    Products
 }
