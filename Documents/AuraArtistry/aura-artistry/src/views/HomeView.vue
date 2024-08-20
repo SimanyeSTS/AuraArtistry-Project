@@ -64,7 +64,10 @@
     <h2>What Our Customers Say</h2>
     <p>"I'm obsessed with the eyeshadow palette! The colors are so pigmented and easy to blend." - Emily R.</p>
     <p>"The lipstick collection is amazing! The formula is so comfortable and the shades are gorgeous." - David K.</p>
-    
+    <p>"The AuraArtistry foundation blends like a dream! My skin has never looked so flawless and natural. It's my new go-to!" - Sarah K.</p>
+    <p>"AuraArtistry's mascara is a game-changer! My lashes are fuller, longer, and beautifully defined without clumping." - Emily R.</p>
+    <p>"I'm obsessed with the AuraArtistry blush! It gives my cheeks the perfect pop of color, and it lasts all day. Absolute perfection!" - Jasmine T.</p>
+    <p>"The highlight from AuraArtistry is pure magic! It adds the perfect amount of glow without being too overpowering. I'm in love!" - Vanessa L.</p>
   </div>
     </section>
   </div>
@@ -94,7 +97,8 @@ export default {
 }
 
 .landing {
-  background-color: #feb1e3;
+  background-image: url(https://tyra-parring.github.io/host-/image/7290139-uhd_3840_2160_25fps-ezgif.com-optimize.gif);
+  height: max-content;
   color: #FAF0E6; 
   padding: 40px;
   display: flex;
@@ -115,7 +119,7 @@ export default {
 }
 
 .cta-button {
-  background-color: #FF7F50; 
+  background-color: #f982fb; 
   color: #FAF0E6; 
   border: none;
   padding: 15px 30px;
@@ -125,7 +129,7 @@ export default {
 }
 
 .cta-button:hover {
-  background-color: #FFA07A; 
+  background-color: #fd9fff; 
   color: #FAF0E6; 
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
@@ -205,7 +209,7 @@ export default {
 }
 
 .product-categories a:hover {
-  color: #FF4500; 
+  color: #fdc2fe; 
 }
 
 .customer-testimonials {

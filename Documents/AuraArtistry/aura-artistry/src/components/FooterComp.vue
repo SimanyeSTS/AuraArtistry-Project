@@ -2,7 +2,7 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="../assets/logo.png" alt="AuraArtistry Logo" />
+          <img src="https://tyra-parring.github.io/host-/image/AURA%20ARTTISRY.png" alt="AuraArtistry Logo" />
         </div>
         <ul class="footer-links">
           <li><a href="home">Home</a></li>
@@ -36,8 +36,8 @@
   
   <style scoped>
   .footer {
-    background-color: #FF7F50; 
-    color: #FAF0E6; 
+    background-color: #ffffff; 
+    color: #000000; 
     padding: 20px;
     text-align: center;
   }
@@ -50,7 +50,7 @@
   }
   
   .footer-logo img {
-    max-height: 50px;
+    max-height: 180px;
   }
   
   .footer-links {
@@ -65,12 +65,12 @@
   }
   
   .footer-links a {
-    color: #FAF0E6; 
+    color: #000000; 
     text-decoration: none;
   }
   
   .footer-links a:hover {
-    color: #40E0D0; 
+    color: #fdc2fe; 
   }
   
   .footer-social {
@@ -78,13 +78,13 @@
   }
   
   .footer-social a {
-    color: #FAF0E6; 
+    color: #000000; 
     margin: 0 10px;
     text-decoration: none;
   }
   
   .footer-social a:hover {
-    color: #40E0D0; 
+    color: #fdc2fe; 
   }
   
   .footer-bottom {
