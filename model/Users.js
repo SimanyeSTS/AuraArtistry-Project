@@ -31,7 +31,7 @@ fetchUser(req, res) {
             WHERE UserID = ${req.params.id};
         `
         db.query(strQry, (err, result) => {
-            if (err) throw new Error('Our apologies, a issue seems to have occured whe retrieving this user. Please try again later.')
+            if (err) throw new Error('Our apologies, an issue seems to have occured whe retrieving this user. Please try again later.')
                 res.json({
             status: res.statusCode,
         result: result[0]
@@ -78,6 +78,31 @@ async registerUser(req, res) {
         err: e.message
     })
 }
+}
+async updateUser(req, res) {
+    try {
+        let data = req.body
+        if (data.userPass) {
+            data.userPass = await hash(data.userPass, 10)
+        }
+        const strQry = `
+        UPDATE Users
+        SET ?
+        WHERE UserID = ${req.params.id}
+        `
+        db.query(strQry, (err, result) => {
+            if (err) throw new Error('Our apologies, it seems we ran into an issue updating the user\'s information. Please try again later.')
+                res.json({
+            status: res.statusCode,
+        msg: "The information on this user have successfully been updated."
+    })
+        })
+    } catch (e) {
+        res.json({
+            status: 400,
+            err: e.message
+        })
+    }
 }
 
 
