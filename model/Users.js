@@ -104,6 +104,27 @@ async updateUser(req, res) {
         })
     }
 }
+deleteUser(req, res) {
+   try{
+ const strQry = `
+ DELETE FROM Users
+ WHERE UserID = ${req.params.id};
+  `
+  db.query(strQry, (err) => {
+    if (err) throw new Error('Our apologies, the user couldn\'t be deleted. Please review your delete query to continue.')
+        res.json({
+    status: res.statusCode,
+    msg: "The user has successfully been deleted."
+        })
+  })
+   } catch (e) {
+    res.json({
+        status: 404,
+        err: e.message
+    })
+   }
+}
+
 
 
 
