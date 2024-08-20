@@ -4,7 +4,7 @@ class Products {
     fetchProducts(req, res) {
         try {
             const strQry = `
-            SELECT prodID, prodImage, prodName, quantity, amount, Category, prodDescription, prodURL
+            SELECT prodID, prodName, quantity, amount, Category, prodDescription, prodURL
             FROM Products;
             `
             db.query(strQry, (err, results) => {
@@ -24,9 +24,9 @@ class Products {
     fetchProduct(req, res) {
         try {
             const strQry = `
-            SELECT prodID, prodImage, prodName, quantity, amount, Category, prodDescription, prodURL
+            SELECT prodID, prodName, quantity, amount, Category, prodDescription, prodURL
             FROM Products
-            WHERE productID = ${req.params.id};    
+            WHERE prodID = ${req.params.id};    
             `
             db.query(strQry, (err, result) => {
                 if (err) throw new Error('Our apologies, an issue seems to have occured whe retrieving this product. Please try again later.')
@@ -62,9 +62,26 @@ class Products {
             })
         }
     }
-
-
-    
+    updateProduct(req, res) {
+        try {
+            const strQry = `
+            UPDATE Products
+            SET ?
+            WHERE prodID = ${req.params.id};
+            `
+            db.query(strQry, [req.body], (err) => {
+                if (err) throw new Error('Our apologies, it seems we ran into an issue updating the product\'s information. Please try again later.')
+                    res.json({
+                status: res.statusCode,
+            msg: "The information on this product has been successfully been updated."})
+            })
+        } catch (e) {
+            res.json({
+                status: 404,
+                    err: e.message
+            })
+        }
+    }
 
 
 

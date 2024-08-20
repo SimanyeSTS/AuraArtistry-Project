@@ -94,7 +94,7 @@ async updateUser(req, res) {
             if (err) throw new Error('Our apologies, it seems we ran into an issue updating the user\'s information. Please try again later.')
                 res.json({
             status: res.statusCode,
-        msg: "The information on this user have successfully been updated."
+        msg: "The information on this user has been successfully been updated."
     })
         })
     } catch (e) {
