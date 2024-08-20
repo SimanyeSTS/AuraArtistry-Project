@@ -25,7 +25,7 @@
       </div>
       <div class="product-grid">
     <div class="product-item">
-      <img src="product-image-1.jpg" alt="Product 1">
+      <img src="https://tyra-parring.github.io/host-/image/view-eyeshadow-palette-with-shades-cosmetic-powder.jpg" alt="Product 1">
       <h3>Eye Shadow <br> Palette</h3>
       <p>Multiple shade palette with long-lasting, high-pigmentation colors.</p>
       <router-link to="/products">
@@ -33,7 +33,7 @@
         </router-link>
     </div>
     <div class="product-item">
-      <img src="product-image-2.jpg" alt="Product 2">
+      <img src="https://tyra-parring.github.io/host-/image/colorful-lipsticks-white-tubes.jpg" alt="Product 2">
       <h3>Lipstick <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
       <router-link to="/products">
@@ -41,15 +41,15 @@
         </router-link>
     </div>
     <div class="product-item">
-      <img src="product-image-2.jpg" alt="Product 3">
-      <h3>Foundation Collection</h3>
+      <img src="https://tyra-parring.github.io/host-/image/different-foundation-shades-view.jpg" alt="Product 3">
+      <h3>Foundation <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
       <router-link to="/products">
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
     <div class="product-item">
-      <img src="product-image-2.jpg" alt="Product 4">
+      <img src="https://tyra-parring.github.io/host-/image/high-angle-different-mascaras-arrangement.jpg" alt="Product 4">
       <h3>Mascara <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
       <router-link to="/products">
@@ -57,15 +57,15 @@
         </router-link>
     </div>
     <div class="product-item">
-      <img src="product-image-2.jpg" alt="Product 5">
-      <h3>Highlighter Collection</h3>
+      <img src="https://tyra-parring.github.io/host-/image/top-view-blush-with-make-up-brush.jpg" alt="Product 5">
+      <h3>Highlighter <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
       <router-link to="/products">
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
     <div class="product-item">
-      <img src="product-image-2.jpg" alt="Product 6">
+      <img src="https://tyra-parring.github.io/host-/image/cosmetic-product-with-color-year-tones-3d-packaging.jpg" alt="Product 6">
       <h3>Blush <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
       <router-link to="/products">
@@ -114,7 +114,7 @@ export default {
 
 <style scoped>
 .home {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   color: #333;
 }
 
@@ -212,6 +212,7 @@ export default {
 .product-categories h2 {
   /* margin-bottom: 1em; */
   margin-top: 1.9em;
+  font-size: 1.9em
 }
 
 .product-categories ul {
@@ -221,6 +222,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 1.3em;
 }
 
 .product-categories li {
