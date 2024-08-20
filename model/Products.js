@@ -43,8 +43,28 @@ class Products {
         }
     }
     addProduct(req, res) {
-        
+        try {
+            const strQry = `
+            INSERT INTO Products
+            SET ?
+            `
+        db.query(strQry, [req.body], (err) => {
+            if (err) throw new Error('An unexpected error occured whilst adding the product. Please check again later.')
+                res.json({
+            status: res.statusCode,
+            msg: "You have been successfully added a product to the Aura Artistry website."
+        })
+        })
+        } catch (e) {
+            res.json({
+                status: 404,
+                err: e.message
+            })
+        }
     }
+
+
+    
 
 
 
