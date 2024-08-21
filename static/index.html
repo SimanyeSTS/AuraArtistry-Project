@@ -3,13 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Aura Artistry API Documentation</title>
 </head>
 <body>
-    <h1>Please see below table for Aura Artistry API defined endpoints.</h1>
+    <h1>Please see below tables for Aura Artistry API defined endpoints.</h1>
 
-    <table>
-        
-    </table>
+<br>
+<br>
+
+<h3>Home</h3>
+
+<table>
+    <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/(API Home Documentation Page)</td>
+        <td>This is the home page of the Aura Artistry API. It contains information about the API and it's endpoints.</td>
+    </tr>
+</table>
+
+<br>
+<br>
+<hr>
+<br>
+
+<h3>Users</h3>
+
+<table>
+    <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>This endpoint when used retrieves all the registered users and their details from the database.</td>
+
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/user/:id</td>
+        <td>This endpoint is used to retrieve a specific product and it's details according to their UserID from the database.</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>/user/register</td>
+        <td>This endpoint is used to register a new user to the database.</td>
+
+    </tr>
+    <tr>
+        <td>PATCH/PUT</td>
+        <td>/user/update/:id</td>
+        <td>This endpoint is used to update a registered user's details according to their UserID from the database.</td>
+
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>/user/delete/:id</td>
+        <td>This endpoint is used to remove a registered user and their details according to their UserID from the database.</td>
+    </tr>
+</table>
+
+<br>
+<br>
+<hr>
+<br>
+
+<h3>Products</h3>
+
+<table>
+    <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/products</td>
+        <td>This endpoint when used retrieves all the products and their details from the database.</td>
+
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>/product/:id</td>
+        <td>This endpoint is used to retrieve a specific product and it's details according to it's prodID from the database.</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>/product/add</td>
+        <td>This endpoint is used to add a new product to the database.</td>
+
+    </tr>
+    <tr>
+        <td>PUT/PATCH</td>
+        <td>/product/update/:id</td>
+        <td>This endpoint is used to update a product's details according to it's prodID from the database.</td>
+
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>/product/delete/:id</td>
+        <td>This endpoint is used to remove a product and it's details according to it's prodID in the database.</td>
+    </tr>
+</table>
+
 </body>
 </html>

@@ -9,3 +9,33 @@
 ::-webkit-scrollbar{
     display: none;
 }
+
+h1, h3{
+    text-align: center;
+    color: black;
+}
+
+body{
+    background-color: pink;
+}
+
+table{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin: auto;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 8px;
+    text-align: center;
+}
+
+hr{
+    color: black;
+    background-color: black;
+}
