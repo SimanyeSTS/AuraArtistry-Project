@@ -40,18 +40,27 @@ export default createStore({
     },
   },
   actions: {
-   async fetchProducts({ commit }) {
-    commit('SET_LOADING', true);
+  //  async fetchProducts({ commit }) {
+  //   commit('SET_LOADING', true);
+  //   try {
+  //     const response = await axios.get(`${hostedData}product`);
+  //     if (response.status === 200) {
+  //       commit('SET_PRODUCTS', response.data.results);
+  //     }
+  //   } catch (error) {
+  //     commit('SET_ERROR', error.message);
+  //     console.error("Error fetching products:", error);
+  //   } finally {
+  //     commit('SET_LOADING', false);
+  //   }
+  async fetchProducts({ commit }) {
     try {
-      const response = await axios.get(`${hostedData}product`);
+      const response = await axios.get("https://auraartistry-project.onrender.com/");
       if (response.status === 200) {
         commit('SET_PRODUCTS', response.data.results);
       }
     } catch (error) {
-      commit('SET_ERROR', error.message);
       console.error("Error fetching products:", error);
-    } finally {
-      commit('SET_LOADING', false);
     }
   },
 
