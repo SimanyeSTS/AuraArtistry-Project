@@ -1,4 +1,4 @@
-import { connection as db } from "../config/index";
+import { connection as db } from "../config/index.js";
 import { createToken } from "../middleware/UserToken.js";
 import { compare, hash } from "bcrypt";
 
@@ -90,7 +90,7 @@ async updateUser(req, res) {
         SET ?
         WHERE UserID = ${req.params.id}
         `
-        db.query(strQry, (err, result) => {
+        db.query(strQry, [data], (err) => {
             if (err) throw new Error('Our apologies, it seems we ran into an issue updating the user\'s information. Please try again later.')
                 res.json({
             status: res.statusCode,
@@ -130,7 +130,7 @@ async login(req, res) {
         const strQry = `
         SELECT UserID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
         FROM Users
-        WHERE emailAdd = ${emailAdd};
+        WHERE emailAdd = '${emailAdd}'  ;
         `
         db.query(strQry, async (err, result) => {
             if (err) throw new Error('Our apologies, we couldn\'t log you in. Please review your login query to continue.')

@@ -1,4 +1,4 @@
-import { connection as db } from "../config";
+import { connection as db } from "../config/index.js";
 
 class Products {
     fetchProducts(req, res) {
@@ -91,7 +91,7 @@ class Products {
             db.query(strQry, (err) => {
                 res.json({
                     status: res.statusCode,
-                    msg: "The information on this product has been successfully been updated."
+                    msg: "The information on this product has been successfully been removed."
                 })
             })
         } catch (e) {

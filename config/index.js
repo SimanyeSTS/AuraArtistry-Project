@@ -1,5 +1,5 @@
 import { createPool } from "mysql2";
-import 'dotenv/config'
+import 'dotenv/config.js'
 const connection = createPool({
     host: process.env.hostDb,
     user: process.env.userDb,
