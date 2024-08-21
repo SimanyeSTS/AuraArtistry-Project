@@ -55,11 +55,11 @@ async registerUser(req, res) {
             userPass: data.userPass
         }
         const strQry = `
-        INSERT INTO Users
-        SET ?;
+        INSERT INTO Users (firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `
-        db.query(strQry, [data], (err) => {
-            if (err) {
+        db.query(strQry, [data.firstName, data.lastName, data.userAge, data.Gender, data.userRole, data.emailAdd, data.userPass, data.userProfile], (err) => {
+            if (err.code === 'ER_DUP_ENTRY') {
                 res.json({
                     status: res.statusCode,
                     msg: "This email appears to already be registered. Please log in or choose a different email address."
