@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static('./static'))
 
+app.use('/users', userRouter)
 app.use('/user', userRouter)
+
+app.use('/products', productRouter)
 app.use('/product', productRouter)
 
 app.get('^/$|/Aura Artistry', (rew, res) => {
