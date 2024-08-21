@@ -4,7 +4,7 @@
     <div class="hero">
       <h1>About AuraArtistry</h1>
       <p>
-        At AuraArtistry, we believe that makeup is not just about covering up, but about revealing the beauty within. Our mission is to empower individuals to express themselves through the art of makeup, and to provide high-quality products and services that help them achieve their desired look.
+        At AuraArtistry, we believe that makeup is not just about covering up imperfections, but about revealing the beauty that lies within. It's about enhancing one's natural features, boosting confidence, and unlocking a sense of self-expression. Our mission is to empower individuals to take control of their beauty journey, to experiment with new looks, and to find their own unique style. We're dedicated to providing high-quality products and services that help our customers achieve their desired look, whether that's a natural everyday glow or a dramatic transformation for a special occasion.
       </p>
     </div>
     <div class="about-section">
@@ -25,6 +25,21 @@
         <li>Empowerment: We believe that makeup should be a tool for self-expression and confidence, not just a way to cover up.</li>
         <li>Quality: We're committed to providing high-quality products and services that meet the highest standards of the industry.</li>
         <li>Community: We're dedicated to building a community of like-minded individuals who share our passion for beauty and self-expression.</li>
+      </ul>
+    </div>
+    <div class="about-section">
+      <h2>Our Team</h2>
+      <p>
+        Our team is made up of passionate and experienced individuals who share our vision and values. From makeup artists to customer service representatives, we're dedicated to providing exceptional service and support to our customers.
+      </p>
+      <p>
+        Meet our team:
+      </p>
+      <ul>
+        <li>Tyra Parring, Founder & Makeup Artist</li>
+        <li>Simanye Somdaka, Co-Founder & Business Manager</li>
+        <li>Jane Doe, Makeup Artist</li>
+        <li>John Smith, Customer Service Representative</li>
       </ul>
     </div>
   </div>
@@ -86,8 +101,6 @@ export default {
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  filter: blur(5px); /* Add this line */
-  backdrop-filter: blur(5px);
 }
 
 .about-section h2 {
