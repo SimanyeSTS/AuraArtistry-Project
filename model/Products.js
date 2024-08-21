@@ -52,7 +52,7 @@ class Products {
             if (err) throw new Error('An unexpected error occured whilst adding the product. Please check again later.')
                 res.json({
             status: res.statusCode,
-            msg: "You have been successfully added a product to the Aura Artistry website."
+            msg: "You have successfully added a product to the Aura Artistry website."
         })
         })
         } catch (e) {
