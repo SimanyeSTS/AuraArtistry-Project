@@ -51,4 +51,8 @@ nav a.router-link-exact-active {
   height: 100vh;
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
 </style>

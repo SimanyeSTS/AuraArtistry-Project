@@ -1,60 +1,38 @@
 <template>
-    <div class="product-card">
-      <img :src="product.imageUrl" alt="Product Image" class="product-image" />
-      <div class="product-details">
-        <h2 class="product-title">{{ product.name }}</h2>
-        <p class="product-description">{{ product.description }}</p>
-        <p class="product-price"> ${{ product.price.toFixed(2) }} </p>
-      </div>
+    <div class="card">
+        <div class="card-header">
+            <slot name="cardHeader"></slot>
+        </div>
+        <div class="card-body">
+            <slot name="cardBody"></slot>
+        </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'ProductCard',
-    props: {
-      product: {
-        type: Object,
-        required: true
-      }
-    }
-  }
-  </script>
-  
-  <style scoped>
-  .product-card {
+</template>
+
+<script>
+export default {
+    name: "CardComp"
+}
+</script>
+
+<style scoped>
+.card {
+    width: 18rem;
+    margin: 1rem;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 16px;
-    padding: 16px;
-    text-align: center;
-  }
-  
-  .product-image {
-    max-width: 100%;
+}
+.card img {
+    width: 100%;
     height: auto;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .product-details {
-    padding: 16px;
-  }
-  
-  .product-title {
-    font-size: 1.25em;
-    margin: 0;
-  }
-  
-  .product-description {
-    color: #555;
-    margin: 8px 0;
-  }
-  
-  .product-price {
-    font-weight: bold;
-    margin-top: 8px;
-  }
-  </style>
-  
+}
+.card-body {
+    padding: 1rem;
+}
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+</style>

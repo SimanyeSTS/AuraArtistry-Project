@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ProductsView from '@/views/ProductsView.vue'
 import AdminView from '@/views/AdminView.vue'
 import ContactView from '@/views/ContactView.vue'
-// import ProductView from '@/views/ProductView.vue'
+import ProductView from '@/views/ProductView.vue'
 
 const routes = [
   {
@@ -24,11 +24,11 @@ const routes = [
     name: 'products',
     component: ProductsView
   },
-  // {
-  //   path: '/product',
-  //   name: 'product',
-  //   component: ProductView
-  // },
+  {
+    path: '/product',
+    name: 'product',
+    component: ProductView
+  },
   {
     path: '/admin',
     name: 'admin',
@@ -38,6 +38,11 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: ContactView
+  },
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: ProductView,
   },
 ]
 
