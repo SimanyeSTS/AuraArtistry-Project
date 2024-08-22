@@ -38,6 +38,12 @@ export default createStore({
     SET_USERS(state, users) {
       state.users = users;
     },
+    ADD_PRODUCT(state, product) {
+      state.products.push(product);
+    },
+    REMOVE_PRODUCT(state, productId) {
+      state.products = state.products.filter(product => product.prodID !== productId);
+    }
   },
   actions: {
   //  async fetchProducts({ commit }) {
@@ -132,7 +138,7 @@ export default createStore({
 
   async updateProduct({ dispatch }, payload) {
     try {
-      const response = await axios.patch(`${hostedData}product/${payload.id}`, payload);
+      const response = await axios.patch(`${hostedData}product/${payload.prodID}`, payload);
       if (response.status === 200) {
         dispatch('fetchProducts');
       }
