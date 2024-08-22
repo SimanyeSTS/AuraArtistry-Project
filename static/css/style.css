@@ -10,7 +10,7 @@
     display: none;
 }
 
-h1, h3{
+h3{
     text-align: center;
     color: black;
 }
@@ -41,3 +41,21 @@ hr{
     border-top: 3px solid white;
     width: 100%;
 }
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    order: -1;
+  }
+
+  .header h1 {
+    flex: 1; /* make the h1 element take up the remaining space */
+  text-align: center; /* center the text */
+  }
+  
