@@ -47,37 +47,48 @@ fetchUser(req, res) {
 }
 async registerUser(req, res) {
     try {
-        let data = req.body
-        data.userPass = await hash(data.userPass, 10)
+        let data = req.body;
+        
+        // Hash the user's password
+        data.userPass = await hash(data.userPass, 10);
 
         let user = {
             emailAdd: data.emailAdd,
             userPass: data.userPass
-        }
+        };
+
         const strQry = `
-        INSERT INTO Users (firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        `
-        db.query(strQry, [data.firstName, data.lastName, data.userAge, data.Gender, data.userRole, data.emailAdd, data.userPass, data.userProfile], (err) => {
-            if (err.code === 'ER_DUP_ENTRY') {
-                res.json({
-                    status: res.statusCode,
-                    msg: "This email appears to already be registered. Please log in or choose a different email address."
-                })
+        INSERT INTO Users
+        SET ?;
+        `;
+
+        db.query(strQry, [data], (err, results) => {
+            if (err) {
+                if (err.code === 'ER_DUP_ENTRY') {
+                    return res.status(409).json({
+                        status: res.statusCode,
+                        msg: "This email appears to already be registered. Please log in or choose a different email address."
+                    })
+                } else {
+                    return res.status(500).json({
+                        status: res.statusCode,
+                        msg: "An error occurred during registration. Please try again."
+                    })
+                }
             } else {
-                const token = createToken(user)
-                res.json({
+                const token = createToken(user);
+                return res.json({
                     token,
                     msg: "You have been successfully registered to use Aura Arstistry. Please log in to continue."
                 })
             }
-    })
-} catch  (e) {
-    res.json({
-        status: 404,
-        err: e.message
-    })
-}
+        })
+    } catch (e) {
+        return res.status(404).json({
+            status: 404,
+            err: e.message
+        })
+    }
 }
 async updateUser(req, res) {
     try {
@@ -132,7 +143,7 @@ async login(req, res) {
         FROM Users
         WHERE emailAdd = '${emailAdd}'  ;
         `
-        db.query(strQry, async (err, result) => {
+        db.query(strQry, [emailAdd], async (err, result) => {
             if (err) throw new Error('Our apologies, we couldn\'t log you in. Please review your login query to continue.')
                 if (!result?.length) {
                     res.json({
@@ -140,9 +151,9 @@ async login(req, res) {
                         msg: "It seems you have provided an invalid email not registered with Aura Artistry. Please register."
                     })
                 } else {
-                    const ValidPass = await compare(userPass, result[0], userPass)
+                    const ValidPass = await compare(userPass, result[0].userPass)
                     if (ValidPass) {
-                        const acesss = createToken({
+                        const token = createToken({
                             emailAdd,
                             userPass
                         })
