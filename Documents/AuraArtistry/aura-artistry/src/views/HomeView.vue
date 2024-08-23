@@ -1,7 +1,7 @@
 <template>
   <NavbarComp/>
   <div class="home">
-    <section class="landing">
+    <section class="landing" data-aos="fade-up" data-aos-duration="1000">
       <h1>Welcome to AuraArtistry</h1>
       <p>Your go-to destination for luxury makeup artistry. Unlock your unique aura and let your true beauty radiate.</p>
       <router-link to="/products">
@@ -10,7 +10,7 @@
     </section>
 
     <section class="products">
-      <div class="product-categories">
+      <div class="product-categories" data-aos="fade-up" data-aos-duration="1000">
         <h2>Product Categories</h2>
         <ul>
           <li><a href="./ProductsView.vue">Eyeshadows</a></li>
@@ -24,7 +24,7 @@
         <p>Explore our exclusive range of luxury cosmetics, crafted with care and style. Where art meets beauty, and beauty meets you.</p>
       </div>
       <div class="product-grid">
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/view-eyeshadow-palette-with-shades-cosmetic-powder.jpg" alt="Product 1">
       <h3>Eye Shadow <br> Palette</h3>
       <p>Multiple shade palette with long-lasting, high-pigmentation colors.</p>
@@ -32,7 +32,7 @@
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/colorful-lipsticks-white-tubes.jpg" alt="Product 2">
       <h3>Lipstick <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
@@ -40,7 +40,7 @@
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/different-foundation-shades-view.jpg" alt="Product 3">
       <h3>Foundation <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
@@ -48,7 +48,7 @@
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/high-angle-different-mascaras-arrangement.jpg" alt="Product 4">
       <h3>Mascara <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
@@ -56,7 +56,7 @@
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/top-view-blush-with-make-up-brush.jpg" alt="Product 5">
       <h3>Highlighter <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
@@ -64,7 +64,7 @@
           <button class="cta-button">Shop Now</button>
         </router-link>
     </div>
-    <div class="product-item">
+    <div class="product-item" data-aos="fade-up" data-aos-duration="1000">
       <img src="https://tyra-parring.github.io/host-/image/cosmetic-product-with-color-year-tones-3d-packaging.jpg" alt="Product 6">
       <h3>Blush <br> Collection</h3>
       <p>5 vibrant shades with a comfortable, moisturizing formula.</p>
@@ -74,7 +74,7 @@
     </div>
   </div>
 
-  <div class="customer-testimonials">
+  <div class="customer-testimonials" data-aos="fade-up" data-aos-duration="1000">
     <h2>What Our Customers Say</h2>
     <p>"I'm obsessed with the eyeshadow palette! The colors are so pigmented and easy to blend." - Emily R.</p>
     <p>"The lipstick collection is amazing! The formula is so comfortable and the shades are gorgeous." - David K.</p>
@@ -113,6 +113,7 @@ export default {
 </script>
 
 <style scoped>
+@import 'aos/dist/aos.css';
 .home {
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   color: #333;
