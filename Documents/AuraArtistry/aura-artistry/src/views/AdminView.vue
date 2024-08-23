@@ -1,11 +1,13 @@
 <template>
-    <div>
+    <div class="one">
       <NavbarComp/>
       <div>
         <h1>Admin Page</h1>
         <br>
         <h2>Products Table</h2>
-        <button class="btn btn-primary" @click="showAddProductModal = true">Add Product</button>
+        <div class="btn-container">
+        <button class="btn btn-custom-pink" @click="showAddProductModal = true">Add Product</button>
+        </div>
         <div v-if="isLoading">Loading...</div>
         <div v-if="error" class="alert alert-danger">{{ error }}</div>
         <div v-if="!isLoading && products.length">
@@ -30,13 +32,43 @@
                 <td>{{ product.amount }}</td>
                 <td>{{ product.quantity }}</td>
                 <td>
-                  <button class="btn btn-warning" @click="updateProduct(product.prodID)">Edit</button>
-                  <button class="btn btn-danger" @click="deleteProduct(product.prodID)">Delete</button>
+                    <div class="btn-container">
+                  <button class="btn btn-custom-pink" @click="updateProduct(product.prodID)">Edit</button>
+                  <button class="btn btn-dark" @click="deleteProduct(product.prodID)">Delete</button>
+                    </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <br>
+      <h2 id="uh">Users Table</h2>
+      <div v-if="error" class="alert alert-danger">{{ error }}</div>
+      <div v-if="!isLoading && users.length">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in users" :key="user.userID">
+              <td>{{ user.firstName }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.userAge }}</td>
+              <td>{{ user.Gender }}</td>
+              <td>{{ user.emailAdd }}</td>
+              <td>{{ user.userRole }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
   
         <b-modal v-model="showAddProductModal" title="Add Product">
           <b-form @submit.prevent="addProduct">
@@ -73,6 +105,7 @@
   import { BModal, BForm, BFormGroup, BFormInput, BFormTextarea, BButton } from 'bootstrap-vue-next';
   
   export default {
+    name: 'AdminView',
     components: {
       NavbarComp,
       FooterComp,
@@ -92,15 +125,20 @@
       };
     },
     computed: {
-      ...mapGetters(['allProducts', 'isLoading', 'error']),
+      ...mapGetters(['allProducts', 'isLoading', 'error', 'allUsers']),
       products() {
-        return this.allProducts;
-      }
+        return this.allProducts || [];
+      },
+      users() {
+      return this.allUsers || [];
+    }
     },
     methods: {
       ...mapActions(['fetchProducts', 'addProduct', 'updateProduct', 'deleteProduct']),
       async fetchData() {
-        await this.fetchProducts();
+        await this.$store.dispatch('fetchUsers');
+        console.log("Fetched Users:", this.$store.getters.allUsers)
+        await this.$store.dispatch('fetchProducts');
       },
       // eslint-disable-next-line no-unused-vars
       async updateProduct(productId) {
@@ -115,28 +153,6 @@
       console.error('Error fetching product for update:', error);
     }
   },
-//   async saveProduct() {
-//     try {
-//       if (this.isUpdating) {
-//         await this.$store.dispatch('updateProduct', this.newProduct);
-//       } else {
-//         await this.$store.dispatch('addProduct', this.newProduct);
-//       }
-//       this.showAddProductModal = false;
-//       this.newProduct = {
-//         prodName: '',
-//         Category: '',
-//         prodDescription: '',
-//         amount: '',
-//         quantity: '',
-//         prodURL: ''
-//       };
-//       await this.fetchData(); // Refresh product list
-//     } catch (error) {
-//       console.error('Error saving product:', error);
-//     }
-//   }
-// }
 
       async deleteProduct(productId) {
     try {
@@ -148,16 +164,16 @@
     },
       async addProduct() {
         console.log('Adding product...')
-  try {
-    await this.$store.dispatch('addProduct', this.newProduct); 
-    this.showAddProductModal = false;
-    this.newProduct = {
-      prodName: '',
-      Category: '',
-      prodDescription: '',
-      amount: '',
-      quantity: '',
-      prodURL: ''
+        try {
+        await this.$store.dispatch('addProduct', this.newProduct); 
+        this.showAddProductModal = false;
+        this.newProduct = {
+        prodName: '',
+        Category: '',
+        prodDescription: '',
+        amount: '',
+        quantity: '',
+        prodURL: ''
     };
     await this.fetchData(); 
   } catch (error) {
@@ -173,5 +189,60 @@
   
   <style>
   
+.btn-custom-pink {
+  background-color: #f982fb !important;
+  color: white !important;
+  border-color: #f982fb !important;
+}
+
+.btn-custom-pink:hover {
+  background-color: #fd9fff !important; 
+  border-color: #fd9fff !important;
+  color: white!important;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.btn-container button {
+    margin: 0 10px;
+}
+
+.one {
+    background-image: url('https://tyra-parring.github.io/host-/image/pexels-paduret-1377034.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.one h1, h2 {
+    display: flex;
+    justify-content: center;
+    margin-block: 1em;
+    color: #ffff;
+}
+
+.one h2 {
+    color: #ffff;
+}
+
+.table {
+  font-size: 0.9em; 
+  border-collapse: collapse; 
+}
+
+.table th, .table td {
+  padding: 5px; 
+}
+
+#uh {
+    color: black
+}
+
   </style>
   
