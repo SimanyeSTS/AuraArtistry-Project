@@ -1,25 +1,25 @@
 <template>
   <NavbarComp/>
   <div class="about-page">
-    <div class="hero">
+    <div class="hero" data-aos="fade-up" data-aos-duration="1000">
       <h1>About AuraArtistry</h1>
       <p>
         At AuraArtistry, we believe that makeup is not just about covering up imperfections, but about revealing the beauty that lies within. It's about enhancing one's natural features, boosting confidence, and unlocking a sense of self-expression. Our mission is to empower individuals to take control of their beauty journey, to experiment with new looks, and to find their own unique style. We're dedicated to providing high-quality products and services that help our customers achieve their desired look, whether that's a natural everyday glow or a dramatic transformation for a special occasion.
       </p>
     </div>
-    <div class="about-section">
+    <div class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <h2>Our Mission</h2>
       <p>
         Our team of expert makeup artists and beauty enthusiasts are dedicated to staying up-to-date on the latest trends and techniques, ensuring that our clients receive the best possible experience. Whether you're looking for a natural everyday look or a dramatic transformation, we're here to help.
       </p>
     </div>
-    <div class="about-section">
+    <div class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <h2>Our Story</h2>
       <p>
         AuraArtistry was founded by partners Tyra Parring & Simanye Somdaka, a passionate makeup artist & a hard-working businessman with a vision to create a community where individuals can come together to share their love of beauty and self-expression. With years of experience in the industry, Tyra Parring has worked with numerous clients, from brides to celebrities, and has developed a unique approach to makeup that emphasizes enhancing one's natural features.
       </p>
     </div>
-    <div class="about-section">
+    <div class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <h2>Our Values</h2>
       <ul>
         <li>Empowerment: We believe that makeup should be a tool for self-expression and confidence, not just a way to cover up.</li>
@@ -27,7 +27,7 @@
         <li>Community: We're dedicated to building a community of like-minded individuals who share our passion for beauty and self-expression.</li>
       </ul>
     </div>
-    <div class="about-section">
+    <div class="about-section" data-aos="fade-up" data-aos-duration="1000">
       <h2>Our Team</h2>
       <p>
         Our team is made up of passionate and experienced individuals who share our vision and values. From makeup artists to customer service representatives, we're dedicated to providing exceptional service and support to our customers.
@@ -50,17 +50,27 @@
 <script>
 import NavbarComp from '../components/NavBarComp.vue';
 import FooterComp from '../components/FooterComp.vue'
+import AOS from 'aos';
 
 export default {
   name: 'AboutView',
   components: {
     NavbarComp,
     FooterComp
+  },
+  mounted() {
+      AOS.init({
+      duration: 1000, 
+      easing: 'ease-in-out', 
+      offset: 200, 
+    });
   }
 }
 </script>
 
 <style scoped>
+@import 'aos/dist/aos.css';
+
 .about-page {
   display: flex;
   flex-direction: column;
