@@ -55,4 +55,8 @@ nav a.router-link-exact-active {
 ::-webkit-scrollbar{
   display: none;
 }
+
+/* *{
+  font-family: 'Advent Pro', sans-serif;
+} */
 </style>

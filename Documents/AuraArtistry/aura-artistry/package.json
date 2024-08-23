@@ -15,6 +15,7 @@
     "bootstrap-vue-next": "^0.24.10",
     "browserify-zlib": "^0.2.0",
     "core-js": "^3.8.3",
+    "google-fonts-webpack-plugin": "^0.4.4",
     "https-browserify": "^1.0.0",
     "register-service-worker": "^1.7.2",
     "stream-browserify": "^3.0.0",

@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack');
+const GoogleFontsPlugin = require('google-fonts-webpack-plugin');
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -14,6 +15,11 @@ module.exports = defineConfig({
         url: require.resolve('url/'),
         assert: require.resolve('assert/'),
       },
+      plugins: [
+        new GoogleFontsPlugin({
+          fonts: ['Advent+Pro:wght@400;600']
+        })
+      ]
     },
   },
 });
