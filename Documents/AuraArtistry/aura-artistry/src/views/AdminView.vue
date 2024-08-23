@@ -54,6 +54,7 @@
               <th>Gender</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -64,6 +65,9 @@
               <td>{{ user.Gender }}</td>
               <td>{{ user.emailAdd }}</td>
               <td>{{ user.userRole }}</td>
+            <td>
+                <button class="btn btn-dark" @click="deleteUser(user.userID)">Delete</button> <!-- Add Delete button -->
+            </td>
             </tr>
           </tbody>
         </table>
@@ -134,12 +138,20 @@
     }
     },
     methods: {
-      ...mapActions(['fetchProducts', 'addProduct', 'updateProduct', 'deleteProduct']),
+      ...mapActions(['fetchProducts', 'addProduct', 'updateProduct', 'deleteProduct', 'delete']),
       async fetchData() {
         await this.$store.dispatch('fetchUsers');
         console.log("Fetched Users:", this.$store.getters.allUsers)
         await this.$store.dispatch('fetchProducts');
       },
+      async deleteUser(userId) {
+            try {
+            await this.$store.dispatch('deleteUser', userId); 
+            this.fetchData(); 
+            } catch (error) {
+            console.error('Error deleting user:', error);
+            }
+        },
       // eslint-disable-next-line no-unused-vars
       async updateProduct(productId) {
     try {
@@ -218,6 +230,7 @@
     background-position: center;
     height: 100vh;
     margin: 0;
+    /* background-color: rgba(0, 0, 0, 1); */
 }
 
 .one h1, h2 {

@@ -43,7 +43,10 @@ export default createStore({
     },
     REMOVE_PRODUCT(state, productId) {
       state.products = state.products.filter(product => product.prodID !== productId);
-    }
+    },
+    REMOVE_USER(state, userId) {
+      state.allUsers = state.allUsers.filter(user => user.userID !== userId);
+    },
   },
   actions: {
   async fetchProducts({ commit }) {
@@ -97,6 +100,15 @@ export default createStore({
     } catch (error) {
       commit('SET_ERROR', error.message);
       console.error("Error fetching user:", error);
+    }
+  },
+
+  async deleteUser({ commit }, userId) {
+    try {
+      await axios.delete(`/user/${userId}`);
+      commit('REMOVE_USER', userId);
+    } catch (error) {
+      commit('SET_ERROR', error.message);
     }
   },
 
