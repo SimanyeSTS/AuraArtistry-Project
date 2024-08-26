@@ -4,12 +4,12 @@
         <img src="https://tyra-parring.github.io/host-/image/AURA%20ARTTISRY.png" alt="AuraArtistry Logo" />
       </div>
       <ul class="nav-links">
-        <li><RouterLink to="/">Home</RouterLink></li>
-      <li><RouterLink to="/about">About</RouterLink></li>
-      <li><RouterLink to="/products">Products</RouterLink></li>
-      <!-- <li><RouterLink to="/product">Product</RouterLink></li> -->
-      <li><RouterLink to="/admin">Admin</RouterLink></li>
-      <li><RouterLink to="/contact">Contact</RouterLink></li>
+        <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
+      <li><router-link to="/products">Products</router-link></li>
+      <!-- <li><router-link to="/product">Product</router-link></li> -->
+      <li><router-link to="/admin">Admin</router-link></li>
+      <li><router-link to="/contact">Contact</router-link></li>
       </ul>
     </nav>
   </template>
