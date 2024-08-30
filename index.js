@@ -27,7 +27,7 @@ app.use('/user', userRouter)
 app.use('/products', productRouter)
 app.use('/product', productRouter)
 
-app.get('^/$|/Aura Artistry', (rew, res) => {
+app.get('^/$|/Aura Artistry', (req, res) => {
     res.status(200).sendFile(path.resolve('./static/index.html'))
 })
 

@@ -79,7 +79,7 @@ async registerUser(req, res) {
                 const token = createToken(user);
                 return res.json({
                     token,
-                    msg: "You have been successfully registered to use Aura Arstistry. Please log in to continue."
+                    msg: "You have been successfully registered to use AuraArtistry. Please log in to continue."
                 })
             }
         })
@@ -141,7 +141,7 @@ async login(req, res) {
         const strQry = `
         SELECT UserID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
         FROM Users
-        WHERE emailAdd = '${emailAdd}'  ;
+        WHERE emailAdd = '${emailAdd}';
         `
         db.query(strQry, [emailAdd], async (err, result) => {
             if (err) throw new Error('Our apologies, we couldn\'t log you in. Please review your login query to continue.')
